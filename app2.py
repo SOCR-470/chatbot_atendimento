@@ -1,4 +1,3 @@
-# app2.py
 import streamlit as st
 from datetime import datetime
 from openai import OpenAI
@@ -19,35 +18,33 @@ info_hotel = {
     "site": "https://compactohotel.com.br",
     "acomodacoes": "Oferecemos suítes compactas com ar-condicionado, Wi-Fi, mesa de trabalho, frigobar e banheiro privativo. Ideal para estadias rápidas e práticas.",
     "sugestoes_proximas": {
-        "restaurantes de massa": "Bellini Restaurante, Cantina Brunelli, Cantina Fellini.",
-        "restaurantes de frutos do mar": "Coco Bambu (Shopping Iguatemi), Jangada (Shopping D. Pedro),",
-        "temos ainda o Outback no Shopping Galleria e Shopping D. Pedro como excelente opção de alimentação": "",
+        "restaurantes": "Bellini Restaurante, Cantina Brunelli, Cantina Fellini, Coco Bambu (Shopping Iguatemi), Jangada (Shopping D. Pedro), Outback (Galleria e D. Pedro).",
         "pontos_turisticos": "Parque Portugal (Lagoa do Taquaral), Bosque dos Jequitibás, Torre do Castelo.",
         "farmacias": "Drogasil e Droga Raia a menos de 5 minutos do hotel.",
         "padarias": "Padaria Pirâmide, Padaria São Geraldo e Padaria Alemã.",
         "hospitais": "Hospital Vera Cruz e Hospital Samaritano estão a cerca de 10 minutos de carro.",
         "shoppings": "Shopping Galleria, Iguatemi Campinas e Parque Dom Pedro.",
         "aeroporto": "O Aeroporto de Viracopos fica a aproximadamente 25 minutos do hotel.",
-                "locadora_carros": "Localiza, Movida e Unidas possuem unidades no Shopping Dom Pedro, Supermercado Carrefour, próximas ao aeroporto e ao centro."
-            }
-        }
+        "locadora_carros": "Localiza, Movida e Unidas possuem unidades no Shopping Dom Pedro, Supermercado Carrefour, próximas ao aeroporto e ao centro."
+    }
+}
 
-# Instrução de sistema dinâmica com base nas informações do dicionário
+# Instrução de sistema dinâmica
 system_instruction = (
     f"Você é um assistente virtual do {info_hotel['nome']}. Solicite o nome do hóspede de forma educada no início do atendimento. "
     "Se o usuário não quiser informar o nome, prossiga normalmente com as respostas. Se o nome for fornecido, use-o de forma cordial nas próximas interações. "
     "Você responde exclusivamente sobre hospedagem, turismo e informações úteis da cidade de Campinas. Não mencione outros hotéis. "
     f"Telefone: {info_hotel['telefone']}. Site: {info_hotel['site']}. E-mail: {info_hotel['email']}. Endereço: {info_hotel['endereco']}. "
     f"Acomodações: {info_hotel['acomodacoes']}. "
-    f"Sugestões próximas ao hotel:"
-    f"- Restaurantes: {info_hotel['sugestoes_proximas']['restaurantes']}"
-    f"- Pontos turísticos: {info_hotel['sugestoes_proximas']['pontos_turisticos']}"
-    f"- Farmácias: {info_hotel['sugestoes_proximas']['farmacias']}"
-    f"- Padarias: {info_hotel['sugestoes_proximas']['padarias']}"
-    f"- Hospitais: {info_hotel['sugestoes_proximas']['hospitais']}"
-    f"- Shoppings: {info_hotel['sugestoes_proximas']['shoppings']}"
-    f"- Aeroporto: {info_hotel['sugestoes_proximas']['aeroporto']}"
-    f"- Locadoras de carro: {info_hotel['sugestoes_proximas']['locadora_carros']}."
+    f"Sugestões próximas ao hotel:\n"
+    f"- Restaurantes: {info_hotel['sugestoes_proximas']['restaurantes']}\n"
+    f"- Pontos turísticos: {info_hotel['sugestoes_proximas']['pontos_turisticos']}\n"
+    f"- Farmácias: {info_hotel['sugestoes_proximas']['farmacias']}\n"
+    f"- Padarias: {info_hotel['sugestoes_proximas']['padarias']}\n"
+    f"- Hospitais: {info_hotel['sugestoes_proximas']['hospitais']}\n"
+    f"- Shoppings: {info_hotel['sugestoes_proximas']['shoppings']}\n"
+    f"- Aeroporto: {info_hotel['sugestoes_proximas']['aeroporto']}\n"
+    f"- Locadoras de carro: {info_hotel['sugestoes_proximas']['locadora_carros']}.\n"
     "A função de consulta de eventos em tempo real foi desativada."
 )
 
