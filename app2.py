@@ -53,7 +53,7 @@ system_instruction = (
 )
 
 st.set_page_config(page_title="Assistente Virtual - Hotel", page_icon="🏨")
-st.title("🧡 Assistente Virtual do Hotel Compacto")
+st.title("🧡 Dani, Assistente Virtual do Hotel Compacto")
 
 if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "system", "content": system_instruction}]
